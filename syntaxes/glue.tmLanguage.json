@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Glue",
+  "name": "GlueIR",
   "patterns": [
     { "include": "#comments" },
     { "include": "#strings" },
@@ -46,7 +46,7 @@
       "patterns": [
         {
           "name": "storage.type.glue",
-          "match": "\\b(int|boolean|string|void|float)\\b"
+          "match": "\\b(int|boolean|bool|double|string|void|float)\\b"
         }
       ]
     },
@@ -54,7 +54,7 @@
       "patterns": [
         {
           "name": "constant.language.boolean.glue",
-          "match": "\\b(true|false)\\b"
+          "match": "\\b(true|false|sticky|const)\\b"
         }
       ]
     },
@@ -62,7 +62,7 @@
       "patterns": [
         {
           "name": "support.function.builtin.glue",
-          "match": "\\b(shout|shin|random|toInt)\\b"
+          "match": "\\b(shout|shin|random|toInt|toDouble|toFloat)\\b"
         },
         {
           "name": "entity.name.function.glue",

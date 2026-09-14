@@ -1,9 +1,4 @@
 # Change Log
 
-All notable changes to the "glue-language-support" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
-
-- Initial release
+- Improved code highlighting and add better syntax check
+- Change supported files from `.glue` to `.glueir`

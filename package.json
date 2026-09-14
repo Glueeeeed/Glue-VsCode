@@ -1,9 +1,9 @@
 {
-  "name": "glue-language-support",
-  "displayName": "glue-language-support",
-  "description": "Add support to glue language (coloring code  and simple syntax check)",
+  "name": "glueir-language-support",
+  "displayName": "glueir-language-support",
+  "description": "Add support to glueIR language (highlighting code  and simple syntax check)",
   "publisher": "Glueeed",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -31,7 +31,7 @@
           "glue"
         ],
         "extensions": [
-          ".glue"
+          ".glueir"
         ],
         "configuration": "./language-configuration.json"
       }
