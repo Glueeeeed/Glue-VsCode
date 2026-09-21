@@ -34,7 +34,7 @@
       "patterns": [
         {
           "name": "keyword.control.glue",
-          "match": "\\b(if|else|while|return)\\b"
+          "match": "\\b(if|else|while|return|sigue|fin)\\b"
         },
         {
           "name": "keyword.other.glue",

@@ -119,15 +119,7 @@ export function activate(context: vscode.ExtensionContext) {
 				const argsContent = shoutMatch[1];
 				const shoutStartIndex = line.text.indexOf(shoutMatch[0]);
 
-				if (argsContent.includes('+')) {
-					const plusIndex = line.text.indexOf('+', shoutStartIndex);
-					const range = new vscode.Range(i, plusIndex, i, plusIndex + 1);
-					diagnostics.push(new vscode.Diagnostic(
-						range,
-						'Syntax error: The `shout` function does not support the `+` operator. Use comma-separated arguments instead, e.g., shout(x, "text", x);',
-						vscode.DiagnosticSeverity.Error
-					));
-				}
+
 
 				if (argsContent.trim().length === 0) {
 					const range = new vscode.Range(
