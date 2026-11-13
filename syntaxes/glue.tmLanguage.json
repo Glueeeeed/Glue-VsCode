@@ -16,6 +16,11 @@
         {
           "name": "comment.line.double-slash.glue",
           "match": "//.*$"
+        },
+        {
+          "name": "comment.block.glue",
+          "begin": "/\\*g",
+          "end": "g\\*/"
         }
       ]
     },
@@ -34,7 +39,7 @@
       "patterns": [
         {
           "name": "keyword.control.glue",
-          "match": "\\b(if|else|while|return|sigue|fin)\\b"
+          "match": "\\b(if|else|while|return|sigue|fin|sino)\\b"
         },
         {
           "name": "keyword.other.glue",
@@ -46,7 +51,7 @@
       "patterns": [
         {
           "name": "storage.type.glue",
-          "match": "\\b(int|boolean|bool|double|string|void|float)\\b"
+          "match": "\\b(int|byte|small|long|huge|boolean|bool|double|string|void|float)\\b"
         }
       ]
     },
@@ -54,7 +59,7 @@
       "patterns": [
         {
           "name": "constant.language.boolean.glue",
-          "match": "\\b(true|false|sticky|const)\\b"
+          "match": "\\b(true|false|sticky|const|nulo)\\b"
         }
       ]
     },
@@ -74,7 +79,7 @@
       "patterns": [
         {
           "name": "constant.numeric.glue",
-          "match": "\\b\\d+(\\.\\d+)?\\b"
+          "match": "\\b\\d+(\\.\\d+)?[fF]?\\b"
         }
       ]
     }

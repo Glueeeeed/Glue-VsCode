@@ -4,6 +4,70 @@ export function activate(context: vscode.ExtensionContext) {
 	const diagnosticCollection = vscode.languages.createDiagnosticCollection('glue');
 	context.subscriptions.push(diagnosticCollection);
 
+	// Code completion provider
+	const completionProvider = vscode.languages.registerCompletionItemProvider('glue', {
+		provideCompletionItems(_document: vscode.TextDocument, _position: vscode.Position) {
+			const items: vscode.CompletionItem[] = [];
+
+			const keywords = [
+				{ label: 'int', kind: vscode.CompletionItemKind.Keyword, insertText: 'int ${1:variableName} = ${2:value};' },
+				{ label: 'float', kind: vscode.CompletionItemKind.Keyword, insertText: 'float ${1:variableName} = ${2:value}f;' },
+				{ label: 'string', kind: vscode.CompletionItemKind.Keyword, insertText: 'string ${1:variableName} = ${2:value}f;' },
+				{ label: 'double', kind: vscode.CompletionItemKind.Keyword, insertText: 'double ${1:variableName} = ${2:value};' },
+				{ label: 'byte', kind: vscode.CompletionItemKind.Keyword, insertText: 'byte ${1:variableName} = ${2:value};' },
+				{ label: 'small', kind: vscode.CompletionItemKind.Keyword, insertText: 'small ${1:variableName} = ${2:value};' },
+				{ label: 'long', kind: vscode.CompletionItemKind.Keyword, insertText: 'long ${1:variableName} = ${2:value};' },
+				{ label: 'huge', kind: vscode.CompletionItemKind.Keyword, insertText: 'huge ${1:variableName} = ${2:value};' },
+				{ label: 'func', kind: vscode.CompletionItemKind.Keyword, insertText: 'func ${1:returnType} ${2:functionName}() {\n\t$0\n}' },
+				{ label: 'if', kind: vscode.CompletionItemKind.Keyword, insertText: 'if (${1:condition}) {\n\t$0\n}' },
+				{ label: 'while', kind: vscode.CompletionItemKind.Keyword, insertText: 'while (${1:condition}) {\n\t$0\n}' },
+				{ label: 'sticky', kind: vscode.CompletionItemKind.Keyword, insertText: 'sticky ${1:variableType}  ${2:variableName} = ${3:value};' },
+				{ label: 'const', kind: vscode.CompletionItemKind.Keyword, insertText: 'const ${1:variableType}  ${2:variableName} = ${3:value};' },
+				{ label: 'return', kind: vscode.CompletionItemKind.Keyword, insertText: 'return ${1:value};' },
+				{ label: 'sigue', kind: vscode.CompletionItemKind.Keyword, insertText: 'sigue;' },
+				{ label: 'fin', kind: vscode.CompletionItemKind.Keyword, insertText: 'fin;' },
+				{ label: 'sino', kind: vscode.CompletionItemKind.Keyword, insertText: 'sino' },
+			];
+
+			const functions = [
+				{ label: 'shout', kind: vscode.CompletionItemKind.Function, insertText: 'shout(${1:message});' },
+				{ label: 'shin', kind: vscode.CompletionItemKind.Function, insertText: 'shin();' },
+				{ label: 'random', kind: vscode.CompletionItemKind.Function, insertText: 'random(${1:min}, ${2:max});' },
+			];
+
+			const methods = [
+				{ label: 'toInt', kind: vscode.CompletionItemKind.Method, insertText: 'toInt()' },
+				{ label: 'toString', kind: vscode.CompletionItemKind.Method, insertText: 'toString()' },
+				{ label: 'toFloat', kind: vscode.CompletionItemKind.Method, insertText: 'toFloat()' },
+			];
+
+			for (const kw of keywords) {
+				const item = new vscode.CompletionItem(kw.label, kw.kind);
+				item.insertText = new vscode.SnippetString(kw.insertText);
+				item.detail = 'Keyword';
+				items.push(item);
+			}
+
+			for (const fn of functions) {
+				const item = new vscode.CompletionItem(fn.label, fn.kind);
+				item.insertText = new vscode.SnippetString(fn.insertText);
+				item.detail = 'Built-in function';
+				items.push(item);
+			}
+
+			for (const m of methods) {
+				const item = new vscode.CompletionItem(m.label, m.kind);
+				item.insertText = new vscode.SnippetString(m.insertText);
+				item.detail = 'Method';
+				items.push(item);
+			}
+
+			return items;
+		}
+	}, '.', ' ', '(', 'f');
+
+	context.subscriptions.push(completionProvider);
+
 	function validateDocument(document: vscode.TextDocument) {
 		if (document.languageId !== 'glue') {
 			return;

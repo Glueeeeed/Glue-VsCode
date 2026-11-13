@@ -3,7 +3,7 @@
   "displayName": "glueir-language-support",
   "description": "Add support to glueIR language (highlighting code  and simple syntax check)",
   "publisher": "Glueeed",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "engines": {
     "vscode": "^1.75.0"
   },
