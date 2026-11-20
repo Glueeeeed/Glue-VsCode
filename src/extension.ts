@@ -17,7 +17,6 @@ export function activate(context: vscode.ExtensionContext) {
 				{ label: 'byte', kind: vscode.CompletionItemKind.Keyword, insertText: 'byte ${1:variableName} = ${2:value};' },
 				{ label: 'small', kind: vscode.CompletionItemKind.Keyword, insertText: 'small ${1:variableName} = ${2:value};' },
 				{ label: 'long', kind: vscode.CompletionItemKind.Keyword, insertText: 'long ${1:variableName} = ${2:value};' },
-				{ label: 'huge', kind: vscode.CompletionItemKind.Keyword, insertText: 'huge ${1:variableName} = ${2:value};' },
 				{ label: 'func', kind: vscode.CompletionItemKind.Keyword, insertText: 'func ${1:returnType} ${2:functionName}() {\n\t$0\n}' },
 				{ label: 'if', kind: vscode.CompletionItemKind.Keyword, insertText: 'if (${1:condition}) {\n\t$0\n}' },
 				{ label: 'while', kind: vscode.CompletionItemKind.Keyword, insertText: 'while (${1:condition}) {\n\t$0\n}' },

@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "GlueIR",
+  "name": "Glue",
   "patterns": [
     { "include": "#comments" },
     { "include": "#strings" },
@@ -51,7 +51,7 @@
       "patterns": [
         {
           "name": "storage.type.glue",
-          "match": "\\b(int|byte|small|long|huge|boolean|bool|double|string|void|float)\\b"
+          "match": "\\b(int|byte|small|long|boolean|bool|double|string|void|float)\\b"
         }
       ]
     },
